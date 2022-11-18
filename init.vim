@@ -7,7 +7,7 @@ set showcmd
 set ruler
 set encoding=utf-8
 set showmatch
-set sw=4
+set sw=2
 set relativenumber
 set laststatus=2
 set noshowmode
@@ -33,6 +33,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'yggdroot/indentline'
 Plug 'mhinz/vim-signify'
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
@@ -52,8 +54,8 @@ call plug#end()
 
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = "hard"
-let g:deoplete#enable_at_startup = 1
-let g:jsx_ext_required = 0
+"let g:deoplete#enable_at_startup = 1
+"let g:jsx_ext_required = 0
 let NERDTreeQuitOnOpen=1
 
 " HTML, JSX
@@ -89,6 +91,7 @@ nmap <Leader>nt :NERDTreeFind<CR>
 
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
+nmap <Leader>x :x<CR>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
