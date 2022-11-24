@@ -17,6 +17,16 @@ set expandtab
 filetype indent on
 imap ff <Esc>
 
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
 call plug#begin('~/.vim/plugged')
 
 " Status bar
@@ -105,3 +115,5 @@ nmap <Leader>< 10<C-w>
 " Faster scrolling
 nnoremap <C-j> 10<C-e>
 nnoremap <C-k> 10<C-y>
+
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
